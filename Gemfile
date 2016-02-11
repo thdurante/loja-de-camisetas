@@ -18,7 +18,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-icheck'
   gem 'rails-assets-admin-lte'
 end
+
 gem 'admin_lte-rails', '~> 2.3', '>= 2.3.2.2'
+# Internacionalization
+gem 'rails-i18n', '~> 4.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

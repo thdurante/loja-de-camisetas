@@ -1,8 +1,8 @@
-<% content_for :pageTitle, "Produtos - Criar" %>
+<% content_for :pageTitle, "Departamentos - Criar" %>
 
 <% count = 0 %>
 <% errorMessage = "<div class=\"alert alert-danger alert-dismissible\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">×</button><i class=\"icon fa fa-info\"></i> Alguma coisa deu errado! Segue a lista de erros abaixo: <br>" %>
-<% @produto.errors.full_messages.each do |message| %>
+<% @departamento.errors.full_messages.each do |message| %>
 	<% count = count + 1 %>
 	<% errorMessage += "[ERRO#{count}]: #{message} <br>" %>
 <% end %>

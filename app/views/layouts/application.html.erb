@@ -7,17 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-    <!-- Site wrapper -->
     <div class="wrapper">
+      	
+    	<!-- HEADER -->
       	<header class="main-header">
-        	<!-- Logo -->
         	<a href=<%= root_url %> class="logo">
           		<span class="logo-mini"><b>S</b>S</span>
           		<span class="logo-lg"><b>Shirt</b>Store</span>
         	</a>
-        	<!-- Header Navbar: style can be found in header.less -->
+
+        	<!-- NAVBAR -->
         	<nav class="navbar navbar-static-top" role="navigation">
-		        <!-- Sidebar toggle button-->
 		        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
 		        	<span class="sr-only">Toggle navigation</span>
 		            <span class="icon-bar"></span>
@@ -26,58 +26,73 @@
 		        </a>
 		        <div class="navbar-custom-menu">
 		            <ul class="nav navbar-nav">
-		              <!-- Control Sidebar Toggle Button -->
 		              <li>
 		                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
 		              </li>
 		            </ul>
 		        </div>
         	</nav>
-      </header>
+      	</header>
 
-      <!-- =============================================== -->
+     	<!-- =============================================== -->
 
-      <!-- Left side column. contains the sidebar -->
-      <aside class="main-sidebar">
-        <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-          <!-- search form -->
-          <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-              <input type="text" name="q" class="form-control" placeholder="Search...">
-              <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
-              </span>
-            </div>
-          </form>
-          <!-- /.search form -->
-          <!-- sidebar menu: : style can be found in sidebar.less -->
-          <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class=<%= current_page?(root_url) ? "active" : nil %>>
-              <a href=<%= root_url %>
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-        		</a>
-            </li>
-            <li class=<%= current_page?(produtos_path) ? "active" : current_page?(new_produto_path) ? "active" : nil %> >
-              <a href="#">
-                <i class="fa fa-files-o"></i>
-                <span>Produtos</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li class=<%= current_page?(produtos_path) ? "active" : nil %> >
-                	<%= link_to "<i class=\"fa fa-circle-o\"></i> Lista de Produtos".html_safe , produtos_path %>
-            	</li>
-                <li class=<%= current_page?(new_produto_path) ? "active" : nil %>>
-                	<%= link_to "<i class=\"fa fa-circle-o\"></i> Novo Produto".html_safe , new_produto_path %>
-            	</li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <!-- /.sidebar -->
-      </aside>
+     	<!-- SIDEBAR -->
+     	<aside class="main-sidebar">
+	        <section class="sidebar">
+
+	        	<!-- SEARCH FORM -->
+	          	<%= form_tag busca_produto_path, method: :post, class: "sidebar-form" do %>
+	          		<div class="input-group">
+	          			<%= text_field_tag :nome, @nomeABuscar, class: "form-control", placeholder: "Search..." %>
+	          			<span class="input-group-btn">
+	          				<%= button_to nil, class: "btn btn-flat" do %>
+								<i class="fa fa-search"></i>
+	          				<% end %>
+	          			</span>
+	          		</div>
+	          	<% end %>
+
+				<!-- SIDEBAR MENU -->
+	         	<ul class="sidebar-menu">
+	            	<li class="header">MAIN NAVIGATION</li>
+	            	<li class=<%= current_page?(root_url) ? "active" : nil %>>
+	              		<a href=<%= root_url %>
+	                		<i class="fa fa-dashboard"></i> <span>Dashboard</span>
+	        			</a>
+	            	</li>
+	            	<li class=<%= current_page?(produtos_path) ? "active" : current_page?(new_produto_path) ? "active" : nil %> >
+	              		<a href="#">
+	                		<i class="fa fa-files-o"></i>
+	                		<span>Produtos</span>
+	                		<i class="fa fa-angle-left pull-right"></i>
+	              		</a>
+	              		<ul class="treeview-menu">
+	                		<li class=<%= current_page?(produtos_path) ? "active" : nil %> >
+	                			<%= link_to "<i class=\"fa fa-circle-o\"></i> Lista de Produtos".html_safe , produtos_path %>
+	            			</li>
+	                		<li class=<%= current_page?(new_produto_path) ? "active" : nil %>>
+	                			<%= link_to "<i class=\"fa fa-circle-o\"></i> Novo Produto".html_safe , new_produto_path %>
+	            			</li>
+	              		</ul>
+	            	</li>
+                <li class=<%= current_page?(departamentos_path) ? "active" : current_page?(new_departamento_path) ? "active" : nil %> >
+                    <a href="#">
+                      <i class="fa fa-tags"></i>
+                      <span>Departamentos</span>
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                      <li class=<%= current_page?(departamentos_path) ? "active" : nil %> >
+                        <%= link_to "<i class=\"fa fa-circle-o\"></i> Lista de Departamentos".html_safe , departamentos_path %>
+                    </li>
+                      <li class=<%= current_page?(new_departamento_path) ? "active" : nil %>>
+                        <%= link_to "<i class=\"fa fa-circle-o\"></i> Novo Departamento".html_safe , new_departamento_path %>
+                    </li>
+                    </ul>
+                </li>
+	          	</ul>
+	        </section>
+      	</aside>
 
       <!-- =============================================== -->
 
