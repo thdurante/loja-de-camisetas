@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160210184413) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "departamentos", force: :cascade do |t|
     t.string   "nome"
     t.datetime "created_at", null: false
