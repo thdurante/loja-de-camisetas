@@ -24,4 +24,6 @@ test:
 
 production:
   <<: *default
+  username: aiqqnkdmlyipcy
+  password: 2b1p1N6GaGPMuyVFDCKsbk6rWw
   database: db/production_postgresql
