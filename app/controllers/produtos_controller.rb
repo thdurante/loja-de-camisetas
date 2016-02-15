@@ -8,10 +8,11 @@ class ProdutosController < ApplicationController
 
 	def new
 		@produto = Produto.new
+		@departamentos = Departamento.all
 	end
 
 	def create
-		valores = params.require(:produto).permit(:nome, :preco, :descricao, :quantidade)
+		valores = params.require(:produto).permit(:nome, :preco, :descricao, :quantidade, :departamento_id)
 		@produto = Produto.new valores
 		if @produto.save
 			flash[:success] = "Produto criado com sucesso!"
@@ -35,6 +36,7 @@ class ProdutosController < ApplicationController
 
 	def edit
 		@produto = Produto.find(params[:id])
+		@departamentos = Departamento.all
 		puts "Alguma coisa #{@produto.nome}"
 	end
 
@@ -55,7 +57,7 @@ class ProdutosController < ApplicationController
 
 	    # Never trust parameters from the scary internet, only allow the white list through.
 	    def produto_params
-	      params.require(:produto).permit(:nome, :preco, :descricao, :quantidade)
+	      params.require(:produto).permit(:nome, :preco, :descricao, :quantidade, :departamento_id)
 	    end
 
 end

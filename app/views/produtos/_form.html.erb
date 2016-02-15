@@ -9,15 +9,19 @@
                 <%= f.text_field :nome, class: "form-control" %>
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
               <div class="form-group">
                 <label>Quantidade: </label>
                 <%= f.number_field :quantidade, step: 1, min: 1, class: "form-control" %>
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-2">
               <label>Preço: </label>
               <%= f.number_field :preco, class: "form-control" %>
+            </div>
+            <div class="col-lg-2">
+              <label>Departamento: </label>
+              <%= f.collection_select :departamento_id, @departamentos, :id, :nome, {}, class: "form-control" %>
             </div>
           </div>
           <div class="row">
