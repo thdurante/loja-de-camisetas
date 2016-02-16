@@ -13,7 +13,7 @@
 				class: "btn btn-danger btn-xs",
 				data: {confirm: "Tem certeza que deseja remover o produto: '#{produto.nome}'?"} %>
 
-			<%= button_to "Editar", "/produtos/#{produto.id}/edit", 
+			<%= button_to "Editar", edit_produto_path(produto), 
 				method: :get, 
 				class: "btn btn-primary btn-xs" %>
 		</div>
